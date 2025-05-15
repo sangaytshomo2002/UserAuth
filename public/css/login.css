@@ -1,0 +1,93 @@
+/* login.css */
+
+body {
+  margin: 0;
+  background-color: #0a0f3d; /* dark blue background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000; /* change default text color to black */
+}
+
+/* Fixed header */
+h2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #8fbeed, #8ba6cf);
+  color: #000; /* black text in header */
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+
+form {
+  margin-top: 90px; /* header height + spacing */
+  background-color: #d6d8dc;
+  padding: 40px 50px;
+  border-radius: 15px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 25px rgba(58, 119, 210, 0.6);
+  color: #000; /* black text inside form */
+}
+
+/* inputs with black text */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  margin: 18px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #e3e7ef; /* lighter bg for readability */
+  color: #000; /* black text */
+  box-sizing: border-box;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #777; /* soft gray placeholder */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background-color: #c2c7d9;
+}
+
+/* button styling */
+button {
+  width: 100%;
+  padding: 15px;
+  background: #4a69ad;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  color: #000; /* black text */
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(74, 105, 173, 0.4);
+}
+
+button:hover {
+  background: #abb7ca;
+  color: #000;
+  box-shadow: 0 6px 10px rgba(171, 183, 202, 0.6);
+}
+
+/* message/error text */
+p {
+  margin-top: 10px;
+  color: #b22222; /* dark red for errors */
+  text-align: center;
+  font-weight: 600;
+}
