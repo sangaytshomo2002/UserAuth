@@ -3,12 +3,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 require('dotenv').config();
+
 const { createUserTable } = require('./model/userModel');
 
+// Route Imports
+const authRoute = require('./routes/authRoute');
+const adminRoute = require('./routes/adminRoute');
+const userRoute = require('./routes/userRoute');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
 
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
@@ -21,26 +25,19 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-
-// View engine
+// View Engine Setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
 // Routes
-// const adminRoutes = require('./routes/adminRoutes');
-const authRoutes = require('./routes/authRoute');
-// const userRoutes = require('./routes/userRoutes');
-app.use('/', authRoutes);
-// app.use('/', adminRoutes);
-// app.use('/', userRoutes);
+app.use('/', authRoute);
+app.use('/admin', adminRoute);
+app.use('/user', userRoute);
 
+// Schema Initialization
+createUserTable(); // Make sure the DB schema is set up
 
-// Schema creation
-createUserTable(); // Call this after setting up middlewares
-
-
-// Server
+// Server Start
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
